@@ -20,6 +20,8 @@ set (CMAKE_DEBUG_POSTFIX "_d")
 
 find_package(OpenGL REQUIRED)
 
+add_subdirectory(lib/glfw)
+
 if(WIN32)
 set(COMMON_LIBS vermilion ${OPENGL_LIBRARIES} optimized glfw3 debug glfw3_d)
 elseif (UNIX)
@@ -100,8 +102,6 @@ ENDIF (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
 
 include_directories( include )
 include_directories(lib/glfw/include)
-
-add_subdirectory(lib/glfw)
 
 ADD_CUSTOM_TARGET(debug ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE:STRING=Debug ${PROJECT_SOURCE_DIR})
 ADD_CUSTOM_TARGET(release ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE:STRING=Release ${PROJECT_SOURCE_DIR})

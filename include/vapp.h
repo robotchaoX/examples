@@ -2,6 +2,9 @@
 #define __VAPP_H__
 
 #include "vgl.h"
+#ifndef _WIN32
+#include <sys/time.h>
+#endif
 
 class VermilionApplication
 {

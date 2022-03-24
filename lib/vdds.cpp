@@ -603,6 +603,7 @@ void vglLoadDDS(const char* filename, vglImageData* image)
     if (image->target == GL_NONE)
         goto done_close_file;
 
+{
     size_t current_pos = ftell(f);
     size_t file_size;
     fseek(f, 0, SEEK_END);
@@ -641,6 +642,7 @@ void vglLoadDDS(const char* filename, vglImageData* image)
         height >>= 1;
         depth >>= 1;
     }
+}
 
 done_close_file:
     fclose(f);
